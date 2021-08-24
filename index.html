@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="#" method="POST">
+        <input type="radio" name="but1" id="radio1" value="Simple" checked="checked" onclick="show()" />
+        <label for="radio1">Simple</label>
+        <input type="radio" name="but2" id="radio2" value="Complex" onclick="show()" />
+        <label for="radio2">Complex</label>
+    </form>
+    <form action="#" id="unit" method="POST"></form>
+    <form action="#" id="box" method="POST"></form>
+
+    <script>
+        function show() {
+            let radios = document.getElementsByName("radios");
+            let unit = document.getElementById("unit");
+            let box = document.getElementById("box");
+
+            box.style.display = 'none';
+            for (let i = 0; i < radios.length; i++) {
+
+                radios[i].onclick = function () {
+                    let val = this.value;
+                    if (val == 'radio1') {
+                        unit.style.display = 'block';
+                        box.style.display = 'none';
+                        `<form>
+                            <input type="number" name="num" id="num" min="1" max="10" />
+                            </form>`
+                    }
+                    else if (val == 'radio2') {
+                        unit.style.display = 'none';
+                        box.style.display = 'block';
+                        `<input type="number" name="num" id="num" min="1" max="25" />`
+                    }
+
+                }
+            }
+        }
+        show();
+    </script>
+
+</body>
+
+</html>
